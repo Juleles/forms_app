@@ -42,49 +42,113 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Opciones de Formulario'),
+        title: const Text('Jules William Custodio 23-24'),
       ),
       body: ListView(
         children: <Widget>[
-          ListTile(
-            title: const Text('Formulario 1'),
-            onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) {
-                  return Formulario1();
-                },
-              ));
-            },
+          Container(
+            decoration: BoxDecoration(
+              color: Color.fromARGB(255, 179, 154, 221),
+              borderRadius: BorderRadius.circular(12.0),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.grey.withOpacity(0.5),
+                  spreadRadius: 5,
+                  blurRadius: 7,
+                  offset: Offset(0, 3),
+                ),
+              ],
+            ),
+            padding: EdgeInsets.all(10.0),
+            margin: EdgeInsets.all(20.0),
+            child: ListTile(
+              title: const Text('Formulario 1'),
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) {
+                    return Formulario1();
+                  },
+                ));
+              },
+            ),
           ),
-          ListTile(
-            title: const Text('Formulario 2'),
-            onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) {
-                  return Formulario2();
-                },
-              ));
-            },
+          Container(
+            decoration: BoxDecoration(
+              color: Color.fromARGB(255, 179, 154, 221),
+              borderRadius: BorderRadius.circular(12.0),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.grey.withOpacity(0.5),
+                  spreadRadius: 5,
+                  blurRadius: 7,
+                  offset: Offset(0, 3),
+                ),
+              ],
+            ),
+            padding: EdgeInsets.all(10.0),
+            margin: EdgeInsets.all(20.0),
+            child: ListTile(
+              title: const Text('Formulario 2'),
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) {
+                    return Formulario2();
+                  },
+                ));
+              },
+            ),
           ),
-          ListTile(
-            title: const Text('Formulario 3'),
-            onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) {
-                  return Formulario2();
-                },
-              ));
-            },
+          Container(
+            decoration: BoxDecoration(
+              color: Color.fromARGB(255, 179, 154, 221),
+              borderRadius: BorderRadius.circular(12.0),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.grey.withOpacity(0.5),
+                  spreadRadius: 5,
+                  blurRadius: 7,
+                  offset: Offset(0, 3),
+                ),
+              ],
+            ),
+            padding: EdgeInsets.all(10.0),
+            margin: EdgeInsets.all(20.0),
+            child: ListTile(
+              title: const Text('Formulario 3'),
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) {
+                    return Formulario3();
+                  },
+                ));
+              },
+            ),
           ),
-          ListTile(
-            title: const Text('Formulario 4'),
-            onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) {
-                  return Formulario2();
-                },
-              ));
-            },
+          Container(
+            decoration: BoxDecoration(
+              color: Color.fromARGB(255, 179, 154, 221),
+              borderRadius: BorderRadius.circular(12.0),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.grey.withOpacity(0.5),
+                  spreadRadius: 5,
+                  blurRadius: 7,
+                  offset: Offset(0, 3),
+                ),
+              ],
+            ),
+            padding: EdgeInsets.all(10.0),
+            margin: EdgeInsets.all(20.0),
+            child: ListTile(
+              title: const Text('Formulario 4'),
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) {
+                    return Formulario4();
+                  },
+                ));
+              },
+            ),
           ),
         ],
       ),
@@ -204,8 +268,6 @@ class Formulario1 extends StatelessWidget {
   }
 }
 
-
-
 class Formulario2 extends StatelessWidget {
   final _formKey = GlobalKey<FormBuilderState>();
 
@@ -222,39 +284,167 @@ class Formulario2 extends StatelessWidget {
           key: _formKey,
           child: Column(
             children: <Widget>[
-              FormBuilderPhoneField(
-                name: 'phone_number',
-                decoration: InputDecoration(
-                  labelText: 'Phone Number',
-                  hintText: 'Hint',
+              Container(
+                decoration: BoxDecoration(
+                  color: Color.fromARGB(255, 179, 154, 221),
+                  borderRadius: BorderRadius.circular(12.0),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.5),
+                      spreadRadius: 5,
+                      blurRadius: 7,
+                      offset: Offset(0, 3),
+                    ),
+                  ],
                 ),
-                // ignore: prefer_const_literals_to_create_immutables
-                priorityListByIsoCode: ['KE'],
-                validator: FormBuilderValidators.compose([
-                  FormBuilderValidators.numeric(),
-                  FormBuilderValidators.required(),
-                ]),
+                padding: EdgeInsets.all(20.0),
+                margin: EdgeInsets.all(50.0),
+                child: FormBuilderCheckboxGroup(
+                  name: 'checkbox',
+                  // ignore: prefer_const_literals_to_create_immutables
+                  options: [
+                    FormBuilderFieldOption(
+                      value: 'Like',
+                      child: Text('Like'),
+                    ),
+                    FormBuilderFieldOption(
+                      value: 'Subscribe',
+                      child: Text('Subscribe'),
+                    ),
+                    FormBuilderFieldOption(
+                      value: 'Share',
+                      child: Text('Share'),
+                    ),
+                    FormBuilderFieldOption(
+                      value: 'Follow',
+                      child: Text('Follow'),
+                    ),
+                  ],
+                ),
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  ElevatedButton(
-                    onPressed: () {
-                      if (_formKey.currentState!.saveAndValidate()) {
-                        debugPrint(_formKey.currentState!.value.toString());
-                      }
-                    },
-                    child: Text("Submit"),
-                  ),
-                  SizedBox(width: 16),
-                  ElevatedButton(
-                    onPressed: () {
-                      _formKey.currentState?.reset();
-                      debugPrint(_formKey.currentState!.instantValue.toString());
-                    },
-                    child: Text("Reset"),
-                  ),
-                ],
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class Formulario3 extends StatelessWidget {
+  final _formKey = GlobalKey<FormBuilderState>();
+
+  Formulario3({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Formulario 3'),
+      ),
+      body: Center(
+        child: FormBuilder(
+          key: _formKey,
+          child: Column(
+            children: <Widget>[
+              Container(
+                decoration: BoxDecoration(
+                  color: Color.fromARGB(255, 179, 154, 221),
+                  borderRadius: BorderRadius.circular(12.0),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.5),
+                      spreadRadius: 5,
+                      blurRadius: 7,
+                      offset: Offset(0, 3),
+                    ),
+                  ],
+                ),
+                padding: EdgeInsets.all(20.0),
+                margin: EdgeInsets.all(50.0),
+                child: FormBuilderCheckboxGroup(
+                  name: 'checkbox',
+                  // ignore: prefer_const_literals_to_create_immutables
+                  options: [
+                    FormBuilderFieldOption(
+                      value: 'Like',
+                      child: Text('Like'),
+                    ),
+                    FormBuilderFieldOption(
+                      value: 'Subscribe',
+                      child: Text('Subscribe'),
+                    ),
+                    FormBuilderFieldOption(
+                      value: 'Share',
+                      child: Text('Share'),
+                    ),
+                    FormBuilderFieldOption(
+                      value: 'Follow',
+                      child: Text('Follow'),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class Formulario4 extends StatelessWidget {
+  final _formKey = GlobalKey<FormBuilderState>();
+
+  Formulario4({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Formulario 4'),
+      ),
+      body: Center(
+        child: FormBuilder(
+          key: _formKey,
+          child: Column(
+            children: <Widget>[
+              Container(
+                decoration: BoxDecoration(
+                  color: Color.fromARGB(255, 179, 154, 221),
+                  borderRadius: BorderRadius.circular(12.0),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.5),
+                      spreadRadius: 5,
+                      blurRadius: 7,
+                      offset: Offset(0, 3),
+                    ),
+                  ],
+                ),
+                padding: EdgeInsets.all(20.0),
+                margin: EdgeInsets.all(50.0),
+                child: FormBuilderCheckboxGroup(
+                  name: 'checkbox',
+                  // ignore: prefer_const_literals_to_create_immutables
+                  options: [
+                    FormBuilderFieldOption(
+                      value: 'Like',
+                      child: Text('Like'),
+                    ),
+                    FormBuilderFieldOption(
+                      value: 'Subscribe',
+                      child: Text('Subscribe'),
+                    ),
+                    FormBuilderFieldOption(
+                      value: 'Share',
+                      child: Text('Share'),
+                    ),
+                    FormBuilderFieldOption(
+                      value: 'Follow',
+                      child: Text('Follow'),
+                    ),
+                  ],
+                ),
               ),
             ],
           ),

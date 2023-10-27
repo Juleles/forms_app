@@ -1,10 +1,11 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:form_builder_phone_field/form_builder_phone_field.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:radio_group_v2/radio_group_v2.dart';
 
 void main() {
   runApp(const MyApp());
@@ -170,10 +171,11 @@ class Formulario1 extends StatelessWidget {
       body: Center(
         child: FormBuilder(
           key: _formKey,
-          child: Column(
-            children: <Widget>[
-              Container(
-                decoration: BoxDecoration(
+          child: SingleChildScrollView(
+            child: Column(
+              children: <Widget>[
+                Container(
+                 decoration: BoxDecoration(
                   color: Color.fromARGB(255, 179, 154, 221),
                   borderRadius: BorderRadius.circular(12.0),
                   boxShadow: [
@@ -185,33 +187,41 @@ class Formulario1 extends StatelessWidget {
                     ),
                   ],
                 ),
-                padding: EdgeInsets.all(20.0),
-                margin: EdgeInsets.all(50.0),
-                child: FormBuilderCheckboxGroup(
-                  name: 'checkbox',
-                  // ignore: prefer_const_literals_to_create_immutables
-                  options: [
-                    FormBuilderFieldOption(
-                      value: 'Like',
-                      child: Text('Like'),
+                padding: EdgeInsets.all(10.0),
+                margin: EdgeInsets.all(20.0),
+                child: Column(
+                  // Wrap the FormBuilderRadioGroup with a Column
+                  mainAxisAlignment: MainAxisAlignment
+                      .start, // Align the radio buttons vertically
+                  children: [
+                    Text(
+                      "What is you favorite animal?",
+                      style:
+                          TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                     ),
-                    FormBuilderFieldOption(
-                      value: 'Subscribe',
-                      child: Text('Subscribe'),
-                    ),
-                    FormBuilderFieldOption(
-                      value: 'Share',
-                      child: Text('Share'),
-                    ),
-                    FormBuilderFieldOption(
-                      value: 'Follow',
-                      child: Text('Follow'),
+                    FormBuilderRadioGroup(
+                      name: 'radio_group',
+                      options: [
+                        FormBuilderFieldOption(
+                            value: 'Elephant', child: Text('Elephant')),
+                        FormBuilderFieldOption(
+                            value: 'Turtle', child: Text('Turtle')),
+                        FormBuilderFieldOption(
+                            value: 'Monkey', child: Text('Monkey')),
+                        FormBuilderFieldOption(
+                            value: 'Dog', child: Text('Dog')),
+                        FormBuilderFieldOption(
+                          value: 'Cat',
+                          child: Text('Cat'),
+                        ),
+                      ],
                     ),
                   ],
                 ),
-              ),
-              Container(
-                decoration: BoxDecoration(
+              
+                ),
+                Container(
+                  decoration: BoxDecoration(
                   color: Color.fromARGB(255, 179, 154, 221),
                   borderRadius: BorderRadius.circular(12.0),
                   boxShadow: [
@@ -223,12 +233,34 @@ class Formulario1 extends StatelessWidget {
                     ),
                   ],
                 ),
-                padding: EdgeInsets.all(20.0),
-                margin: EdgeInsets.all(50.0),
+                padding: EdgeInsets.all(10.0),
+                margin: EdgeInsets.all(20.0),
+                child: FormBuilderTextField(
+                    name: 'text_field',
+                    decoration: InputDecoration(labelText: 'Why do you like this animal?', labelStyle: TextStyle(fontSize: 16)),
+                    validator: FormBuilderValidators.required(),
+                  )
+                ),
+                Container(
+                  decoration: BoxDecoration(
+                  color: Color.fromARGB(255, 179, 154, 221),
+                  borderRadius: BorderRadius.circular(12.0),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.5),
+                      spreadRadius: 5,
+                      blurRadius: 7,
+                      offset: Offset(0, 3),
+                    ),
+                  ],
+                ),
+                padding: EdgeInsets.all(10.0),
+                margin: EdgeInsets.all(20.0),
                 child: FormBuilderDropdown(
                   name: 'dropdown_field',
                   decoration: InputDecoration(
-                    labelText: 'Select an option',
+                    labelText: 'Gender',
+                    labelStyle: TextStyle(fontSize: 16),
                     hintText: 'Choose one',
                   ),
                   items: ['Male', 'Female', 'Prefer not to say']
@@ -238,29 +270,70 @@ class Formulario1 extends StatelessWidget {
                           ))
                       .toList(),
                 ),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  ElevatedButton(
-                    onPressed: () {
-                      if (_formKey.currentState!.saveAndValidate()) {
+                ),
+                Text("Choose your Age",),
+                Container(
+                  decoration: BoxDecoration(
+                  color: Color.fromARGB(255, 179, 154, 221),
+                  borderRadius: BorderRadius.circular(12.0),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.5),
+                      spreadRadius: 5,
+                      blurRadius: 7,
+                      offset: Offset(0, 3),
+                    ),
+                  ],
+                ),
+                padding: EdgeInsets.all(20.0),
+                margin: EdgeInsets.all(20.0),
+                child: FormBuilderCheckboxGroup(
+                  name: 'checkbox',
+                  activeColor: Colors.black,
+                  hoverColor: Colors.white38,
+                  options: [
+                    FormBuilderFieldOption(
+                      value: 'Below_7',
+                      child: Text('Below 7'),
+                    ),
+                    FormBuilderFieldOption(
+                      value: '8_17',
+                      child: Text('8 - 17'),
+                    ),
+                    FormBuilderFieldOption(
+                      value: '18_21',
+                      child: Text('18 - 21'),
+                    ),
+                    FormBuilderFieldOption(
+                      value: 'Above 21',
+                      child: Text('Above 21'),
+                    ),
+                  ],
+                ),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    ElevatedButton(
+                      onPressed: () {
+                        if (_formKey.currentState!.saveAndValidate()) {
+                          debugPrint(_formKey.currentState!.value.toString());
+                        }
+                      },
+                      child: Text("Submit"),
+                    ),
+                    SizedBox(width: 16),
+                    ElevatedButton(
+                      onPressed: () {
+                        _formKey.currentState?.reset();
                         debugPrint(_formKey.currentState!.value.toString());
-                      }
-                    },
-                    child: Text("Submit"),
-                  ),
-                  SizedBox(width: 16),
-                  ElevatedButton(
-                    onPressed: () {
-                      _formKey.currentState?.reset();
-                      debugPrint(_formKey.currentState!.value.toString());
-                    },
-                    child: Text("Reset"),
-                  ),
-                ],
-              ),
-            ],
+                      },
+                      child: Text("Reset"),
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       ),
@@ -301,7 +374,6 @@ class Formulario2 extends StatelessWidget {
                 margin: EdgeInsets.all(50.0),
                 child: FormBuilderCheckboxGroup(
                   name: 'checkbox',
-                  // ignore: prefer_const_literals_to_create_immutables
                   options: [
                     FormBuilderFieldOption(
                       value: 'Like',
@@ -363,7 +435,6 @@ class Formulario3 extends StatelessWidget {
                 margin: EdgeInsets.all(50.0),
                 child: FormBuilderCheckboxGroup(
                   name: 'checkbox',
-                  // ignore: prefer_const_literals_to_create_immutables
                   options: [
                     FormBuilderFieldOption(
                       value: 'Like',
@@ -425,7 +496,6 @@ class Formulario4 extends StatelessWidget {
                 margin: EdgeInsets.all(50.0),
                 child: FormBuilderCheckboxGroup(
                   name: 'checkbox',
-                  // ignore: prefer_const_literals_to_create_immutables
                   options: [
                     FormBuilderFieldOption(
                       value: 'Like',
